@@ -55,23 +55,19 @@ public class SellerDaoJDBC implements SellerDao{
 		
 		else {
 			throw new DbException("Erro inesperado, nenhuma linha afetada");
-		}
-		
-	}
-		
+		}	
+	}		
 		catch(SQLException e) {
 			throw new DbException(e.getMessage());
-	}
-		
+	}	
 		finally {
 			DB.closeStatement(st);
-	}
-		
-	}
+	}	
+}
 
 	@Override
 	public void update(Seller obj) {
-PreparedStatement st = null;
+		PreparedStatement st = null;
 		
 		try {
 			st = conn.prepareStatement("""
